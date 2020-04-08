@@ -1,0 +1,7 @@
+# src/Acme/BlogBundle/Resources/config/validation.yml
+Acme\DemoBundle\Entity\AcmeEntity:
+  properties:
+    name:
+      - NotBlank: ~
+      - Numeric: ~
+      - Acme\DemoBundle\Validator\Constraints\ContainsAlphanumeric: ~
