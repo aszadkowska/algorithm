@@ -1,6 +1,6 @@
 ### Live Link
 
-https://algorithm-maxvalue.herokuapp.com/algorithm
+https://algorithm-maxvalue.herokuapp.com/
 
 ### Instalation
 
