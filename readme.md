@@ -18,7 +18,7 @@ You have 2 possibilities to find maximum value for your input.
 By using web interface:
 
 ```php
-http://{domain}/algorithm
+http://{domain}/
 ```
 
 By using algorithm:maxValue command:

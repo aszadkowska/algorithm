@@ -18,9 +18,9 @@ class AlgorithmController extends AbstractController
     }
 
     /**
-     * @Route("/algorithm", name="algorithm")
+     * @Route("/", name="algorithm")
      */
-    public function index(Request $request): array
+    public function index(Request $request)
     {
         $results = [];
         if ($request->isMethod(Request::METHOD_POST)) {
