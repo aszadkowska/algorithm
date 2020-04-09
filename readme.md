@@ -1,12 +1,14 @@
+### Live Link
+
+https://algorithm-maxvalue.herokuapp.com/algorithm
+
 ### Instalation
 
 
 ```php
-git clone https://github.com/aszadkowska/algorithm.git
+git clone https://github.com/aszadkowska/algorithm.git && cd algortihm
 
-composer install 
-
-symfony server:start
+composer install && php bin/console server:start
 ```
 
 ### Documentation
@@ -30,6 +32,3 @@ where the arguments are numbers between 1 - 99999 separated by spaces
 ```php
 php bin/console algorithm:maxValue 6 28 91 129
 ```
-
-### Live Link
-
