@@ -26,7 +26,7 @@ class AlgorithmController extends AbstractController
         if ($request->isMethod(Request::METHOD_POST)) {
             foreach ($request->request->all() as $number) {
                 if (is_numeric($number) && $number >= 1 && $number <= 99999) {
-                    $results[$number] = $this->algorithmService->getMaxValueInNumberString($number);
+                    $results[$number] = $this->algorithmService->getMaxValue($number);
                 }
             }
         }

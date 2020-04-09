@@ -39,21 +39,22 @@ class AlgorithmCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $arguments = $input->getArgument('arguments');
 
-        if ($arguments && count($arguments) <= 10) {
-            $table = new Table($section2);
-            $table->setHeaders(['Number', 'MaxValue'])->render();
-            foreach ($arguments as $argument) {
-                if (is_numeric($argument) && $argument >= 1 && $argument <= 99999) {
-                    $maxValue = $this->algorithmService->getMaxValueInNumberString($argument);
-                    $table->appendRow([$argument, $maxValue]);
-                } else {
-                    $io->error('Some arguments are incorrect');
-                    return 0;
-                }
-            }
-        } else {
-            $io->error('You did not enter arguments or enter more than 10 numbers :(');
+        if (!$arguments || count($arguments) > 10) {
+            $io->error('Number of arguments should be more than 1 and less than 10');
             return 0;
+        }
+
+        $table = new Table($section2);
+        $table->setHeaders(['Number', 'MaxValue'])->render();
+
+        foreach ($arguments as $argument) {
+            if (!is_numeric($argument) || $argument < 1 || $argument > 99999) {
+                $io->error('Argument ' . $argument . ' is incorrect');
+                return 0;
+            }
+
+            $maxValue = $this->algorithmService->getMaxValue($argument);
+            $table->appendRow([$argument, $maxValue]);
         }
 
         $section1->clear();

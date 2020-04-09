@@ -18,7 +18,7 @@ You have 2 possibilities to find maximum value for your input.
 By using web interface:
 
 ```php
-http://{domain}/
+http://127.0.0.1:8000 
 ```
 
 By using algorithm:maxValue command:

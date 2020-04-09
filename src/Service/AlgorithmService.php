@@ -4,7 +4,7 @@ namespace App\Service;
 
 class AlgorithmService
 {
-    public function getMaxValueInNumberString($input): int
+    public function getMaxValue($input): int
     {
         $a = [];
         $a[0] = 0;
