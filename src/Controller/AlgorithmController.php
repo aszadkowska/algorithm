@@ -12,7 +12,8 @@ class AlgorithmController extends AbstractController
     /** @var AlgorithmService */
     private $algorithmService;
 
-    public function __construct(AlgorithmService $algorithmService) {
+    public function __construct(AlgorithmService $algorithmService)
+    {
         $this->algorithmService = $algorithmService;
     }
 

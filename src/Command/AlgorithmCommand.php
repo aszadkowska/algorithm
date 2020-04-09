@@ -13,12 +13,13 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class AlgorithmCommand extends Command
 {
-    protected static $defaultName = 'algorithm';
+    protected static $defaultName = 'algorithm:maxValue';
 
     /** @var AlgorithmService */
     private $algorithmService;
 
-    public function __construct(AlgorithmService $algorithmService) {
+    public function __construct(AlgorithmService $algorithmService)
+    {
         parent::__construct();
         $this->algorithmService = $algorithmService;
     }
@@ -26,9 +27,8 @@ class AlgorithmCommand extends Command
     protected function configure()
     {
         $this
-            ->setDescription('Entered numbers')
-            ->addArgument('arguments', InputArgument::IS_ARRAY, '')
-        ;
+            ->setDescription('Calculating the maximum value in a numeric string')
+            ->addArgument('arguments', InputArgument::IS_ARRAY, 'Numeric arguments must be separated by spaces');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -46,10 +46,13 @@ class AlgorithmCommand extends Command
                 if (is_numeric($argument) && $argument >= 1 && $argument <= 99999) {
                     $maxValue = $this->algorithmService->getMaxValueInNumberString($argument);
                     $table->appendRow([$argument, $maxValue]);
+                } else {
+                    $io->error('Some arguments are incorrect');
+                    return 0;
                 }
             }
         } else {
-            $io->error('You can enter only 10 numbers :(');
+            $io->error('You did not enter arguments or enter more than 10 numbers :(');
             return 0;
         }
 
